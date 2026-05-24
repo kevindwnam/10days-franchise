@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif_KR } from "next/font/google";
+import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 import "./globals.css";
 
 const notoSerifKR = Noto_Serif_KR({
@@ -30,7 +32,11 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <div className="flex-1">{children}</div>
+        <Footer />
+        <FloatingCTA />
+      </body>
     </html>
   );
 }
