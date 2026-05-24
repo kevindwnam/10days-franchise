@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>십일전략 가맹 모집 (목업 v1)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'brand-red': '#C8102E',
+          'brand-black': '#000000',
+          'brand-gray': '#6B6B6B',
+          'brand-border': '#E5E5E5',
+          'brand-dark': '#0A0A0A',
+          'brand-bg': '#F7F7F7',
+        },
+        fontFamily: {
+          serif: ['"Noto Serif KR"', 'serif'],
+          sans: ['Pretendard', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-family: 'Pretendard', sans-serif; background: #F7F7F7; }
+  .font-serif-kr { font-family: 'Noto Serif KR', serif; }
+  .count-up { font-feature-settings: 'tnum'; }
+  /* Smooth fade */
+  .page { display: none; animation: fadeIn 0.3s ease-in; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  /* Hide scrollbar but allow scroll */
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="text-brand-black">
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- 목업 페이지 전환 바 (실제 사이트에서는 제거됨) -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div class="bg-brand-dark text-white py-2 sticky top-0 z-40 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between text-xs gap-3">
+    <span class="text-gray-400 hidden md:inline shrink-0">🎨 목업 (실제 사이트엔 이 바 없음)</span>
+    <div class="flex gap-1.5 overflow-x-auto scrollbar-hide flex-1 md:flex-none md:justify-end">
+      <button onclick="showPage('home')" data-page="home" class="nav-btn px-3 py-1 rounded-full bg-brand-red text-white font-bold transition whitespace-nowrap">홈</button>
+      <button onclick="showPage('about')" data-page="about" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">가맹 소개</button>
+      <button onclick="showPage('system')" data-page="system" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">수업 시스템</button>
+      <button onclick="showPage('operation')" data-page="operation" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">운영 방식</button>
+      <button onclick="showPage('revenue')" data-page="revenue" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">수익 구조</button>
+      <button onclick="showPage('franchise-type')" data-page="franchise-type" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">가맹 형태</button>
+      <button onclick="showPage('process')" data-page="process" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">진행 절차</button>
+      <button onclick="showPage('contract')" data-page="contract" class="nav-btn px-3 py-1 rounded-full bg-gray-700 text-gray-300 font-bold transition whitespace-nowrap">계약 조건</button>
+    </div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- 홈 페이지 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-home" class="page active">
+
+  <!-- 상단 헤더 -->
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center">
+      <div class="font-serif-kr text-3xl md:text-5xl tracking-tight">
+        <span class="text-brand-red font-black">十日</span><span class="font-bold">전략</span>
+      </div>
+      <div class="text-xs md:text-sm text-brand-gray mt-2 tracking-wider">
+        GR831 약술형논술 연구소 가맹 모집 안내
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero 카드 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-5xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm overflow-hidden">
+        <div class="p-6 md:p-10 lg:p-12">
+          <!-- 모바일/태블릿: 세로 / PC: 좌우 2단 -->
+          <div class="lg:grid lg:grid-cols-5 lg:gap-12 lg:items-center">
+
+            <!-- 좌측 텍스트 -->
+            <div class="lg:col-span-3">
+              <div class="text-xs font-bold text-brand-red tracking-widest mb-3">
+                FOR ACADEMY OWNERS
+              </div>
+              <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl leading-tight">
+                검증된 콘텐츠 · 시스템 · 노하우<br>
+                <span class="text-brand-red">가맹점에 그대로 제공합니다</span>
+              </h1>
+              <p class="text-sm md:text-base text-brand-gray mt-4 leading-relaxed">
+                2026학년도 가천대학교 135명 합격을 만든 GR831약술형논술연구소의 온라인 학습 브랜드 "십일전략" 공식 가맹 사업.
+                전국 최다 합격률을 만든 콘텐츠와 시스템을 가맹점이 그대로 사용합니다.
+              </p>
+
+              <!-- 핵심 가치 4줄 -->
+              <div class="mt-6 space-y-2.5">
+                <div class="flex items-start gap-3">
+                  <span class="text-brand-red font-bold">✓</span>
+                  <span class="text-sm md:text-base">약술형논술 강사진 운영과 컨텐츠 생산이 어려운 학원에 검증된 실시간 라이브 강의를 그대로</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-brand-red font-bold">✓</span>
+                  <span class="text-sm md:text-base">지역권 보호정책 유무 선택</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-brand-red font-bold">✓</span>
+                  <span class="text-sm md:text-base">약술형논술 전문 온라인 강사진 실시간 라이브 수업</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-brand-red font-bold">✓</span>
+                  <span class="text-sm md:text-base">합격 숫자로 증명된 GR831약술형논술연구소 콘텐츠 사용</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 우측 합격 실적 -->
+            <div class="lg:col-span-2 mt-8 lg:mt-0">
+              <div class="bg-brand-bg rounded-xl p-5 lg:p-6">
+                <div class="text-xs text-brand-gray tracking-widest text-center mb-4">
+                  가천대학교 합격생 추이
+                </div>
+                <div class="grid grid-cols-3 gap-2 lg:grid-cols-1 lg:gap-3">
+                  <div class="text-center lg:text-left lg:flex lg:items-baseline lg:justify-between lg:pb-3 lg:border-b lg:border-brand-border">
+                    <div class="text-xs text-brand-gray">2024학년도</div>
+                    <div class="font-serif-kr font-black text-2xl lg:text-3xl">98<span class="text-sm font-normal text-brand-gray">명</span></div>
+                  </div>
+                  <div class="text-center lg:text-left lg:flex lg:items-baseline lg:justify-between lg:pb-3 lg:border-b lg:border-brand-border">
+                    <div class="text-xs text-brand-gray">2025학년도</div>
+                    <div class="font-serif-kr font-black text-2xl lg:text-3xl">120<span class="text-sm font-normal text-brand-gray">명</span></div>
+                  </div>
+                  <div class="text-center lg:text-left lg:flex lg:items-baseline lg:justify-between">
+                    <div class="text-xs font-bold text-brand-red">2026학년도</div>
+                    <div class="font-serif-kr font-black text-3xl lg:text-5xl text-brand-red count-up">135<span class="text-base font-normal">명</span></div>
+                  </div>
+                </div>
+                <div class="text-[10px] md:text-xs text-brand-gray text-center mt-4">
+                  GR831약술형논술연구소 · 전국 최다 합격률
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 1: 십일전략 가맹이란? -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-5xl mx-auto px-5 pt-6">
+      <!-- 섹션 헤더 -->
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">십일전략 가맹이란?</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">사업 개요</span>
+      </div>
+
+      <!-- 카드 그리드 -->
+      <div class="space-y-3 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4">
+        <!-- 카드 1 -->
+        <a href="#" onclick="showPage('about'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center lg:flex-col lg:items-start gap-4 lg:gap-3">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">🏆</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">가맹 소개</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">3개년 합격 실적 · 브랜드 가치 · 제공 서비스</div>
+            </div>
+            <div class="text-brand-gray lg:hidden">›</div>
+          </div>
+        </a>
+
+        <!-- 카드 2 -->
+        <a href="#" onclick="showPage('system'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center lg:flex-col lg:items-start gap-4 lg:gap-3">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">💡</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">참여형 라이브 수업 시스템</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">인강 ≠ 십일전략 · ClassIn 활용 라이브 수업</div>
+            </div>
+            <div class="text-brand-gray lg:hidden">›</div>
+          </div>
+        </a>
+
+        <!-- 카드 3 -->
+        <a href="#" onclick="showPage('operation'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center lg:flex-col lg:items-start gap-4 lg:gap-3">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">⚙️</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">가맹 운영 방식</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">콘텐츠 제공 · 수업 흐름 · 학생 관리 시스템</div>
+            </div>
+            <div class="text-brand-gray lg:hidden">›</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 가맹 상세 정보 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-5xl mx-auto px-5 pt-10">
+      <!-- 섹션 헤더 -->
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">가맹 상세 정보</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">수익 · 형태 · 절차 · 계약</span>
+      </div>
+
+      <!-- 카드 그리드 (PC에서 2x2) -->
+      <div class="space-y-3 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-4">
+        <!-- 카드 1: 수익 구조 -->
+        <a href="#" onclick="showPage('revenue'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">💰</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">수익 구조</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">수강료 · 정산 · 손익분기점 · 시뮬레이션</div>
+            </div>
+            <div class="text-brand-gray">›</div>
+          </div>
+        </a>
+
+        <!-- 카드 2: 가맹 형태 -->
+        <a href="#" onclick="showPage('franchise-type'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">🗺️</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">가맹 형태</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">지역권 4종 · 가맹비 · 보호 반경</div>
+            </div>
+            <div class="text-brand-gray">›</div>
+          </div>
+        </a>
+
+        <!-- 카드 3: 가맹 진행 절차 -->
+        <a href="#" onclick="showPage('process'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">📋</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">가맹 진행 절차</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">문의부터 개점까지 7단계</div>
+            </div>
+            <div class="text-brand-gray">›</div>
+          </div>
+        </a>
+
+        <!-- 카드 4: 계약 조건 -->
+        <a href="#" onclick="showPage('contract'); return false;" class="block bg-white rounded-2xl border border-brand-border p-5 lg:p-6 hover:-translate-y-0.5 hover:shadow-md transition cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-brand-bg flex items-center justify-center text-3xl shrink-0">📜</div>
+            <div class="flex-1">
+              <div class="font-bold text-base lg:text-lg">계약 조건</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-snug">계약 기간 · 환불 규정 · 위약 조항</div>
+            </div>
+            <div class="text-brand-gray">›</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 하단 CTA 카드 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-5xl mx-auto px-5 pt-10 pb-12">
+      <div class="bg-brand-dark text-white rounded-2xl p-8 lg:p-12 text-center">
+        <h3 class="font-serif-kr font-black text-2xl lg:text-3xl">가맹 상담을 시작하세요</h3>
+        <p class="text-sm lg:text-base text-gray-300 mt-3 leading-relaxed">
+          카카오톡 채널로 문의주시면 상세한 사업 안내와 미팅 일정을 잡아드립니다.<br class="hidden lg:block">
+          모든 가맹 형태에 대한 자료와 계약서를 제공해드립니다.
+        </p>
+        <a href="http://pf.kakao.com/_kpsxfn" target="_blank" rel="noopener noreferrer"
+           class="inline-block mt-6 bg-brand-red text-white rounded-full py-3 px-8 font-bold hover:opacity-90 transition">
+          카카오톡 상담하기 →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-5xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- 정산 페이지 (/revenue) -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-revenue" class="page">
+
+  <!-- 상단 헤더 -->
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">REVENUE STRUCTURE</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">수익 구조 & 정산</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">수강료 · 정산 금액 · 가맹점 순익 시뮬레이션</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 카드 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">투명한 정산, 명확한 수익</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          십일전략의 모든 수강료와 정산 금액은 공개되어 있습니다.
+          가맹점은 본사가 제시한 <strong class="text-brand-red">최저선 이상</strong>의 수강료를 자율적으로 책정할 수 있으며,
+          정산 차액이 가맹점의 순익이 됩니다.
+        </p>
+        <div class="mt-4 p-3 bg-brand-bg rounded-lg text-xs lg:text-sm text-brand-gray">
+          📌 본 페이지의 모든 수치는 학생 1명 기준이며, 부가세 별도입니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 수강료 최저선 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">수강료 최저선</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">최저선 이상 학원 자율 책정 가능</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <!-- 모바일: 카드 / PC: 테이블 -->
+
+        <!-- 모바일 카드 (lg 미만) -->
+        <div class="lg:hidden divide-y divide-brand-border">
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-3">
+              <div class="font-bold text-base">모의고사 정규반</div>
+              <div class="text-xs text-brand-red font-bold">메인</div>
+            </div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">회당 최저 수강료</span><strong>90,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">회당 교재비</span><strong>14,000원</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>월 4회 기준</span><strong class="text-brand-red text-base">416,000원</strong></div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="font-bold text-base mb-3">개념특강 <span class="text-xs text-brand-gray font-normal ml-1">(정규반 수강생 한정)</span></div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">회당 최저 수강료</span><strong>40,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">교재비</span><strong>무료</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>월 4회 기준</span><strong class="text-brand-red text-base">160,000원</strong></div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-3">
+              <div class="font-bold text-base">파이널 특강 <span class="text-xs text-brand-gray font-normal ml-1">(20회 묶음)</span></div>
+              <div class="text-xs bg-brand-bg text-brand-gray px-2 py-1 rounded-full font-bold">금액 미정</div>
+            </div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">수강료 (20회)</span><strong>1,000,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">교재비 (20회)</span><strong>200,000원</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>총액</span><strong class="text-brand-red text-base">1,200,000원</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PC 테이블 (lg 이상) -->
+        <table class="hidden lg:table w-full">
+          <thead>
+            <tr class="bg-brand-dark text-white text-sm">
+              <th class="py-4 px-6 text-left font-bold">구분</th>
+              <th class="py-4 px-6 text-right font-bold">회당 최저 수강료</th>
+              <th class="py-4 px-6 text-right font-bold">회당 교재비</th>
+              <th class="py-4 px-6 text-right font-bold">월 4회 기준 (총)</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">
+                모의고사 정규반
+                <span class="ml-2 text-xs text-brand-red">메인</span>
+              </td>
+              <td class="py-4 px-6 text-right">90,000원</td>
+              <td class="py-4 px-6 text-right">14,000원</td>
+              <td class="py-4 px-6 text-right"><strong class="text-brand-red text-base">416,000원</strong></td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">
+                개념특강
+                <div class="text-xs text-brand-gray font-normal mt-0.5">정규반 수강생 한정</div>
+              </td>
+              <td class="py-4 px-6 text-right">40,000원</td>
+              <td class="py-4 px-6 text-right">무료</td>
+              <td class="py-4 px-6 text-right"><strong class="text-brand-red text-base">160,000원</strong></td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-bold">
+                파이널 특강
+                <div class="text-xs text-brand-gray font-normal mt-0.5">20회 묶음 판매</div>
+                <span class="inline-block mt-1 text-[10px] bg-brand-bg text-brand-gray px-2 py-0.5 rounded-full font-bold">금액 미정</span>
+              </td>
+              <td class="py-4 px-6 text-right">1,000,000원<span class="text-xs text-brand-gray block">(20회 총액)</span></td>
+              <td class="py-4 px-6 text-right">200,000원<span class="text-xs text-brand-gray block">(20회 총액)</span></td>
+              <td class="py-4 px-6 text-right"><strong class="text-brand-red text-base">1,200,000원</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-brand-gray mt-3 text-center">위 금액은 학원에서 받을 수 있는 <strong>최저</strong> 수강료입니다. 자율적으로 더 높게 책정 가능합니다.</p>
+    </section>
+
+    <!-- 본사 정산 금액 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">본사 정산 금액</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">가맹점 → 본사</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <!-- 모바일 카드 -->
+        <div class="lg:hidden divide-y divide-brand-border">
+          <div class="p-5">
+            <div class="font-bold text-base mb-3">모의고사 정규반</div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">회당 정산</span><strong>40,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">회당 교재비</span><strong>14,000원</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>월 4회 기준</span><strong class="text-base">216,000원</strong></div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="font-bold text-base mb-3">개념특강</div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">회당 정산</span><strong>20,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">교재비</span><strong>무료</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>월 4회 기준</span><strong class="text-base">80,000원</strong></div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-3">
+              <div class="font-bold text-base">파이널 특강 <span class="text-xs text-brand-gray font-normal ml-1">(20회 묶음)</span></div>
+              <div class="text-xs bg-brand-bg text-brand-gray px-2 py-1 rounded-full font-bold">금액 미정</div>
+            </div>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between"><span class="text-brand-gray">수강료 정산 (20회)</span><strong>500,000원</strong></div>
+              <div class="flex justify-between"><span class="text-brand-gray">교재비 정산 (20회)</span><strong>200,000원</strong></div>
+              <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span>총 정산</span><strong class="text-base">700,000원</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PC 테이블 -->
+        <table class="hidden lg:table w-full">
+          <thead>
+            <tr class="bg-brand-dark text-white text-sm">
+              <th class="py-4 px-6 text-left font-bold">구분</th>
+              <th class="py-4 px-6 text-right font-bold">회당 정산</th>
+              <th class="py-4 px-6 text-right font-bold">회당 교재비</th>
+              <th class="py-4 px-6 text-right font-bold">월 4회 정산 (총)</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">모의고사 정규반</td>
+              <td class="py-4 px-6 text-right">40,000원</td>
+              <td class="py-4 px-6 text-right">14,000원</td>
+              <td class="py-4 px-6 text-right"><strong class="text-base">216,000원</strong></td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">개념특강</td>
+              <td class="py-4 px-6 text-right">20,000원</td>
+              <td class="py-4 px-6 text-right">무료</td>
+              <td class="py-4 px-6 text-right"><strong class="text-base">80,000원</strong></td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-bold">
+                파이널 특강
+                <div class="text-xs text-brand-gray font-normal mt-0.5">20회 묶음</div>
+                <span class="inline-block mt-1 text-[10px] bg-brand-bg text-brand-gray px-2 py-0.5 rounded-full font-bold">금액 미정</span>
+              </td>
+              <td class="py-4 px-6 text-right">500,000원<span class="text-xs text-brand-gray block">(20회 총액)</span></td>
+              <td class="py-4 px-6 text-right">200,000원<span class="text-xs text-brand-gray block">(20회 총액)</span></td>
+              <td class="py-4 px-6 text-right"><strong class="text-base">700,000원</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 가맹점 순익 계산 (핵심) -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">가맹점 순익</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">학생 1명 기준</span>
+      </div>
+
+      <!-- 3개 수업별 순익 카드 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+        <!-- 정규반 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">메인</div>
+          <div class="font-bold text-base">모의고사 정규반</div>
+          <div class="text-xs text-brand-gray mt-1">월 4회 기준</div>
+          <div class="mt-4 pt-4 border-t border-brand-border space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">학원 매출</span><strong>416,000원</strong></div>
+            <div class="flex justify-between"><span class="text-brand-gray">본사 정산</span><strong>216,000원</strong></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">학원 순익</span><strong class="text-brand-red text-base">200,000원</strong></div>
+          </div>
+        </div>
+
+        <!-- 개념특강 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-gray tracking-widest mb-2">옵션</div>
+          <div class="font-bold text-base">개념특강</div>
+          <div class="text-xs text-brand-gray mt-1">월 4회 (화·목 1세트)</div>
+          <div class="mt-4 pt-4 border-t border-brand-border space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">학원 매출</span><strong>160,000원</strong></div>
+            <div class="flex justify-between"><span class="text-brand-gray">본사 정산</span><strong>80,000원</strong></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">학원 순익</span><strong class="text-brand-red text-base">80,000원</strong></div>
+          </div>
+        </div>
+
+        <!-- 파이널 특강 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-xs font-bold text-brand-gray tracking-widest">시즌</div>
+            <div class="text-[10px] bg-brand-bg text-brand-gray px-2 py-0.5 rounded-full font-bold">금액 미정</div>
+          </div>
+          <div class="font-bold text-base">파이널 특강</div>
+          <div class="text-xs text-brand-gray mt-1">20회 묶음 총액</div>
+          <div class="mt-4 pt-4 border-t border-brand-border space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">학원 매출</span><strong>1,200,000원</strong></div>
+            <div class="flex justify-between"><span class="text-brand-gray">본사 정산</span><strong>700,000원</strong></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">학원 순익</span><strong class="text-brand-red text-base">500,000원</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-brand-gray mt-3 text-center">위 금액은 본사 제시 최저 수강료 기준입니다. 학원 자율 책정 시 순익이 더 증가합니다.</p>
+    </section>
+
+    <!-- 시뮬레이션 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">학생 수별 월 순익 시뮬레이션</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">정규반 기준</span>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-3">
+        <div class="bg-white rounded-xl border border-brand-border p-4 text-center">
+          <div class="text-xs text-brand-gray">학생 5명</div>
+          <div class="font-serif-kr font-black text-lg lg:text-xl mt-1">100<span class="text-xs font-normal text-brand-gray">만원</span></div>
+          <div class="text-[10px] text-brand-gray mt-1">월 순익</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 text-center">
+          <div class="text-xs text-brand-gray">학생 10명</div>
+          <div class="font-serif-kr font-black text-lg lg:text-xl mt-1">200<span class="text-xs font-normal text-brand-gray">만원</span></div>
+          <div class="text-[10px] text-brand-gray mt-1">월 순익</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 text-center">
+          <div class="text-xs text-brand-gray">학생 20명</div>
+          <div class="font-serif-kr font-black text-lg lg:text-xl mt-1">400<span class="text-xs font-normal text-brand-gray">만원</span></div>
+          <div class="text-[10px] text-brand-gray mt-1">월 순익</div>
+        </div>
+        <div class="bg-white rounded-xl border-2 border-brand-red p-4 text-center">
+          <div class="text-xs text-brand-red font-bold">학생 30명</div>
+          <div class="font-serif-kr font-black text-lg lg:text-xl mt-1 text-brand-red">600<span class="text-xs font-normal">만원</span></div>
+          <div class="text-[10px] text-brand-gray mt-1">월 순익</div>
+        </div>
+        <div class="bg-brand-dark text-white rounded-xl p-4 text-center col-span-2 lg:col-span-1">
+          <div class="text-xs text-gray-300">학생 50명</div>
+          <div class="font-serif-kr font-black text-lg lg:text-xl mt-1 text-brand-red">1,000<span class="text-xs font-normal text-gray-300">만원</span></div>
+          <div class="text-[10px] text-gray-400 mt-1">월 순익</div>
+        </div>
+      </div>
+
+      <div class="mt-4 p-4 bg-brand-bg rounded-lg text-xs lg:text-sm text-brand-gray">
+        💡 <strong>참고:</strong> 위는 최저 수강료(90,000원/회) 기준입니다.
+        실제로는 학원이 자율 책정한 수강료(예: 100,000원/회)로 운영 시 순익이 더 증가합니다.
+        개념특강을 추가로 운영하면 학생 1명당 월 80,000원의 추가 순익이 발생합니다.
+      </div>
+    </section>
+
+    <!-- 추가 정보: 콘텐츠 사용료 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <h3 class="font-serif-kr font-bold text-base lg:text-lg">콘텐츠 사용료 안내</h3>
+        <p class="text-sm lg:text-base text-brand-gray mt-2 leading-relaxed">
+          본사가 제공하는 모든 콘텐츠(문제지, 워크북, 답안지, <strong>강의노트</strong>, 해설지, 모범답안, 해설영상, <strong>매일국어 1컷</strong>)는
+          정산 금액에 포함되어 있습니다. 별도 사용료는 없습니다.
+        </p>
+
+        <div class="mt-5">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">📦 실물 배송</div>
+          <div class="grid grid-cols-3 gap-2 text-xs">
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📄 문제지</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📘 워크북</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📝 답안지</div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">💻 온라인 학습웹 제공</div>
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📝 시험지</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📑 강의노트</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📖 해설지</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">✏️ 모범답안</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">🎬 해설영상</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📱 매일국어 1컷</div>
+          </div>
+          <p class="text-xs text-brand-gray mt-3">* 수강생은 온라인 학습웹에서 위 자료를 언제든 확인할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 여백 -->
+    <div class="pb-12"></div>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /about 가맹 소개 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-about" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">ABOUT FRANCHISE</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">가맹 소개</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">GR831약술형논술연구소의 공식 가맹 사업</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">십일전략은 GR831의 온라인 강의 브랜드입니다</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          십일전략은 가천대학교 약술형논술 자문위원 출신 연구원들로 구성된
+          <strong>GR831약술형논술연구소</strong>가 제작한 콘텐츠를 사용하여 운영하는 참여형 온라인 수업 브랜드입니다.
+          <strong>약술형논술 강사진 운영과 컨텐츠 생산이 어려운 학원</strong>에 검증된 실시간 라이브 강의와 시스템을 제공합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3개년 합격 실적 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">3개년 누적 합격 실적</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">가천대학교</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-10">
+        <div class="grid grid-cols-3 gap-4 lg:gap-8">
+          <div class="text-center">
+            <div class="text-xs text-brand-gray mb-2">2024학년도</div>
+            <div class="font-serif-kr font-black text-3xl lg:text-5xl count-up">98<span class="text-base font-normal text-brand-gray">명</span></div>
+          </div>
+          <div class="text-center border-x border-brand-border">
+            <div class="text-xs text-brand-gray mb-2">2025학년도</div>
+            <div class="font-serif-kr font-black text-3xl lg:text-5xl count-up">120<span class="text-base font-normal text-brand-gray">명</span></div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs font-bold text-brand-red mb-2">2026학년도</div>
+            <div class="font-serif-kr font-black text-3xl lg:text-5xl text-brand-red count-up">135<span class="text-base font-normal">명</span></div>
+          </div>
+        </div>
+        <p class="text-center text-xs lg:text-sm text-brand-gray mt-6 leading-relaxed">
+          가천대학교 약술형논술 전형 합격생 <strong>전국 최다 배출</strong><br>
+          매년 합격생 수가 증가하는 검증된 콘텐츠 · 강사진 · 시스템
+        </p>
+      </div>
+    </section>
+
+    <!-- 본사 제공 서비스 4가지 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">본사 제공 서비스</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">계약서 제3조 기준</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center shrink-0">1</span>
+            <div>
+              <div class="font-bold text-base">온라인 정규 강의 제공</div>
+              <div class="text-sm text-brand-gray mt-1 leading-relaxed">본사 강사진의 실시간 라이브 강의를 학생 개인의 패드를 통해 학습</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center shrink-0">2</span>
+            <div>
+              <div class="font-bold text-base">매일국어 1컷</div>
+              <div class="text-sm text-brand-gray mt-1 leading-relaxed">매일 아침 <strong>8시 카카오톡</strong>으로 도착하는 9단계 카드뉴스. 매일 15분, 월~금 5~10월 = <strong>핵심 지문 130편 정복</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center shrink-0">3</span>
+            <div>
+              <div class="font-bold text-base">답안 채점 · 분석표 제공</div>
+              <div class="text-sm text-brand-gray mt-1 leading-relaxed">매주 모의고사 답안 채점 후 <strong>금요일 저녁 7시 카카오톡 채널</strong>로 정밀 분석표 자동 발송</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center shrink-0">4</span>
+            <div>
+              <div class="font-bold text-base">질의응답 관리</div>
+              <div class="text-sm text-brand-gray mt-1 leading-relaxed">ClassIn 질문방 운영 + 매주 <strong>수요일 밤 10시 30분 질의응답 클래스</strong> 운영</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 lg:col-span-2">
+          <div class="flex items-start gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center shrink-0">5</span>
+            <div>
+              <div class="font-bold text-base">공동 마케팅</div>
+              <div class="text-sm text-brand-gray mt-1 leading-relaxed">본사 인스타 · 블로그 홍보 진행 · 당해년도 입결 결과 공유 · 학원 자체 마케팅 진행</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 강사진 신뢰도 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="bg-brand-dark text-white rounded-2xl p-8 lg:p-12 text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-3">CREDENTIALS</div>
+        <h3 class="font-serif-kr font-black text-2xl lg:text-3xl">가천대학교 약술형논술 자문위원 출신</h3>
+        <p class="text-sm lg:text-base text-gray-300 mt-4 leading-relaxed">
+          GR831약술형논술연구소는 6년 동안 약술형논술 전형 하나에만 집중해온 전문 기관입니다.<br class="hidden lg:block">
+          출제 의도를 가장 잘 아는 팀이 직접 콘텐츠를 제작하고 강의합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10 pb-12">
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8 text-center">
+        <h3 class="font-bold text-base lg:text-lg">가맹 상담을 시작하세요</h3>
+        <p class="text-sm text-brand-gray mt-2">카카오톡 채널로 사업 안내와 미팅 일정을 잡아드립니다</p>
+        <a href="http://pf.kakao.com/_kpsxfn" target="_blank" rel="noopener noreferrer"
+           class="inline-block mt-4 bg-brand-red text-white rounded-full py-3 px-8 font-bold hover:opacity-90 transition">
+          카카오톡 상담하기 →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /system 참여형 수업 시스템 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-system" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">LIVE CLASS SYSTEM</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">참여형 라이브 수업 시스템</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">인강이 아닙니다. 실시간 라이브 참여형 수업입니다.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">"내가 아는 것과 모르는 것"을 정확히 파악합니다</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          십일전략의 참여형 온라인 수업은 단순한 인강이 아닙니다.
+          본사 강사진의 라이브 강의를 학생이 태블릿으로 시청하며, 학생의 필기를 강사·조교가 실시간 모니터링하고
+          즉각 피드백을 제공하는 양방향 수업입니다. 질문하고, 피드백받고, 다시 질문하는 과정을 통해 메타인지를 강화합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 수업 구조 5단계 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">하루 수업 구조</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">5단계 학습 루프</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <div class="space-y-3 lg:grid lg:grid-cols-4 lg:gap-3 lg:space-y-0">
+          <div class="flex lg:flex-col lg:text-center items-center gap-3 lg:gap-2">
+            <div class="w-10 h-10 rounded-full bg-brand-red text-white font-bold flex items-center justify-center shrink-0">1</div>
+            <div>
+              <div class="font-bold text-sm">75분 시험</div>
+              <div class="text-xs text-brand-gray mt-0.5">ClassIn 시험감독</div>
+            </div>
+          </div>
+          <div class="flex lg:flex-col lg:text-center items-center gap-3 lg:gap-2">
+            <div class="w-10 h-10 rounded-full bg-brand-red text-white font-bold flex items-center justify-center shrink-0">2</div>
+            <div>
+              <div class="font-bold text-sm">10분 휴식</div>
+              <div class="text-xs text-brand-gray mt-0.5">간단한 질문 가능</div>
+            </div>
+          </div>
+          <div class="flex lg:flex-col lg:text-center items-center gap-3 lg:gap-2">
+            <div class="w-10 h-10 rounded-full bg-brand-red text-white font-bold flex items-center justify-center shrink-0">3</div>
+            <div>
+              <div class="font-bold text-sm">풀이 수업</div>
+              <div class="text-xs text-brand-gray mt-0.5">국어·수학1·수학2</div>
+            </div>
+          </div>
+          <div class="flex lg:flex-col lg:text-center items-center gap-3 lg:gap-2">
+            <div class="w-10 h-10 rounded-full bg-brand-red text-white font-bold flex items-center justify-center shrink-0">4</div>
+            <div>
+              <div class="font-bold text-sm">질문방</div>
+              <div class="text-xs text-brand-gray mt-0.5">강사·조교·동료와 소통</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 p-3 bg-brand-bg rounded-lg text-xs lg:text-sm text-brand-gray text-center">
+          💡 "시험 → 풀이 → 질문"의 빠른 루프를 통해 학습 효율을 극대화합니다
+        </div>
+      </div>
+    </section>
+
+    <!-- 비교표 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">기존 강의와의 차이점</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">3가지 비교</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <!-- 모바일 카드 형식 -->
+        <div class="lg:hidden divide-y divide-brand-border">
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center bg-brand-bg">
+            <div class="font-bold text-brand-gray">구분</div>
+            <div class="text-center font-bold text-brand-gray">인강</div>
+            <div class="text-center font-bold text-brand-red">십일전략</div>
+          </div>
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center">
+            <div class="font-bold">소통</div>
+            <div class="text-center text-brand-gray">일방적</div>
+            <div class="text-center font-bold">양방향 실시간</div>
+          </div>
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center">
+            <div class="font-bold">몰입도</div>
+            <div class="text-center text-brand-gray">낮음</div>
+            <div class="text-center font-bold">최고</div>
+          </div>
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center">
+            <div class="font-bold">반복 학습</div>
+            <div class="text-center text-brand-gray">녹화 가능</div>
+            <div class="text-center font-bold">라이브 + 녹화</div>
+          </div>
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center">
+            <div class="font-bold">피드백</div>
+            <div class="text-center text-brand-gray">거의 없음</div>
+            <div class="text-center font-bold">실시간 가능</div>
+          </div>
+          <div class="p-5 grid grid-cols-3 gap-2 text-xs items-center">
+            <div class="font-bold">데이터</div>
+            <div class="text-center text-brand-gray">없음</div>
+            <div class="text-center font-bold">패턴 분석 제공</div>
+          </div>
+        </div>
+
+        <!-- PC 테이블 -->
+        <table class="hidden lg:table w-full text-sm">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="py-4 px-6 text-left font-bold">구분</th>
+              <th class="py-4 px-6 text-center font-bold">기존 인강</th>
+              <th class="py-4 px-6 text-center font-bold">기존 현장강의</th>
+              <th class="py-4 px-6 text-center font-bold text-brand-red bg-white">십일전략</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">소통 방식</td>
+              <td class="py-4 px-6 text-center text-brand-gray">일방적 (강사 → 학생)</td>
+              <td class="py-4 px-6 text-center text-brand-gray">일방적 (강사 → 학생)</td>
+              <td class="py-4 px-6 text-center font-bold">양방향 실시간 소통</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">몰입도</td>
+              <td class="py-4 px-6 text-center text-brand-gray">낮음 (자기주도성 필요)</td>
+              <td class="py-4 px-6 text-center text-brand-gray">높음 (강사 통제)</td>
+              <td class="py-4 px-6 text-center font-bold">최고 (능동적 참여)</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">반복 학습</td>
+              <td class="py-4 px-6 text-center text-brand-gray">가능 (녹화 강의)</td>
+              <td class="py-4 px-6 text-center text-brand-gray">불가능</td>
+              <td class="py-4 px-6 text-center font-bold">가능 (라이브 + 녹화)</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-4 px-6 font-bold">질문 & 피드백</td>
+              <td class="py-4 px-6 text-center text-brand-gray">거의 없음</td>
+              <td class="py-4 px-6 text-center text-brand-gray">제한적</td>
+              <td class="py-4 px-6 text-center font-bold">실시간 가능</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-bold">학습 데이터</td>
+              <td class="py-4 px-6 text-center text-brand-gray">없음</td>
+              <td class="py-4 px-6 text-center text-brand-gray">없음</td>
+              <td class="py-4 px-6 text-center font-bold">학습 패턴 분석 & 맞춤 피드백</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ClassIn 플랫폼 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">ClassIn 플랫폼 활용</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">전용 교육 플랫폼</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div class="bg-white rounded-xl border border-brand-border p-4 lg:p-5">
+          <div class="font-bold text-sm lg:text-base">📹 실시간 화상 강의</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-1">강사·조교·학생 전원 캠 ON 소통</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 lg:p-5">
+          <div class="font-bold text-sm lg:text-base">✏️ 디지털 칠판 + 화판</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-1">강사 칠판과 학생 필기 동기화</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 lg:p-5">
+          <div class="font-bold text-sm lg:text-base">📊 LMS 통합 관리</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-1">과제 제출 · 채점 · 코멘트</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 lg:p-5">
+          <div class="font-bold text-sm lg:text-base">🎬 수업 녹화본 저장</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-1">과제 제출 후 복습 시청 가능</div>
+        </div>
+        <div class="bg-white rounded-xl border border-brand-border p-4 lg:p-5 lg:col-span-2">
+          <div class="font-bold text-sm lg:text-base">🎯 시험 감독 기능</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-1">백색소음 · 타이머 · 캠 모니터링 · 집중도 알림</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 출제 적중률 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">출제 적중률</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">26학년도 가천대</span>
+      </div>
+
+      <div class="bg-brand-dark text-white rounded-2xl p-6 lg:p-10">
+        <p class="text-sm lg:text-base text-gray-300 text-center mb-6">
+          26학년도 가천대 시험 ↔ GR831 파이널 모의고사 <strong class="text-white">실제 출제 문항 매핑 분석</strong>
+        </p>
+        <div class="grid grid-cols-2 gap-4 lg:gap-8">
+          <div class="text-center border-r border-gray-700">
+            <div class="text-xs text-brand-red font-bold tracking-widest mb-2">MATH</div>
+            <div class="font-serif-kr font-black text-5xl lg:text-7xl text-white count-up">90<span class="text-2xl lg:text-4xl">%</span></div>
+            <div class="text-xs lg:text-sm text-gray-300 mt-3">수학 과목 적중</div>
+            <div class="text-[10px] lg:text-xs text-gray-400 mt-1">EBS 기반 유형·변형 적중</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs text-brand-red font-bold tracking-widest mb-2">KOREAN</div>
+            <div class="font-serif-kr font-black text-5xl lg:text-7xl text-white count-up">80<span class="text-2xl lg:text-4xl">%</span></div>
+            <div class="text-xs lg:text-sm text-gray-300 mt-3">국어 과목 적중</div>
+            <div class="text-[10px] lg:text-xs text-gray-400 mt-1">지문 형태·요소 적중</div>
+          </div>
+        </div>
+        <p class="text-xs lg:text-sm text-gray-400 text-center mt-6 leading-relaxed">
+          * 지문 자체는 EBS 연계 출제 특성상 자동 100% 적중되며,<br class="hidden lg:block">
+          위 수치는 <strong class="text-white">실제 시험 출제 문항 기준</strong>의 적중률입니다.
+        </p>
+        <p class="text-xs text-brand-red text-center mt-4 font-bold">
+          시험에서 마주친 문제, 학원에서 이미 풀어본 문제 — 데이터로 검증된 적중률
+        </p>
+      </div>
+    </section>
+
+    <!-- 하단 여백 -->
+    <div class="pb-12"></div>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /operation 가맹 운영 방식 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-operation" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">OPERATIONS</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">가맹 운영 방식</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">콘텐츠 제공 · 수업 흐름 · 학생 관리</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">본사와 가맹점의 역할 분담</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          본사는 콘텐츠 제작·강의·채점·분석 등 학사 운영의 핵심을 담당하고,
+          가맹점은 학생 모집·현장 관리·학부모 응대 등 지역 운영에 집중합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 주간 운영 흐름 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">주간 운영 흐름</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">요일별 프로세스</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <div class="divide-y divide-brand-border">
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center font-serif-kr font-bold shrink-0">월</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">수강 인원 전달</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">가맹점 → 본사 (카카오톡 채널로 엑셀 파일 전송)</div>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center font-serif-kr font-bold shrink-0">화</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">콘텐츠 인쇄 & 일괄 배송</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">문제지·워크북·답안지 실물 + 해설지·모범답안·강의노트·해설영상 온라인 제공</div>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center font-serif-kr font-bold shrink-0 text-xs">월~금</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">매일국어 1컷 발송</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">매일 아침 8시 카카오톡으로 9단계 카드뉴스 자동 발송 (15분 분량)</div>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-red text-white flex items-center justify-center font-serif-kr font-bold shrink-0">토</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">수업 진행 (18:00 ~ 22:00)</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">정규 모의고사반 4시간 라이브 수업</div>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center font-serif-kr font-bold shrink-0">토</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">답안지 회송</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">가맹점이 답안지 PDF 스캔해 카카오톡 소통방으로 전달 (늦어도 일요일까지)</div>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center font-serif-kr font-bold shrink-0">금</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm lg:text-base">채점지 & 분석표 발송</div>
+              <div class="text-xs lg:text-sm text-brand-gray mt-0.5">본사가 <strong>금요일 저녁 7시</strong> 학생/학부모에게 직접 발송</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 토요일 수업 시간표 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">토요일 수업 시간표</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">정규 모의고사반</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="py-3 px-4 lg:px-6 text-left font-bold">시간</th>
+              <th class="py-3 px-4 lg:px-6 text-left font-bold">내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-4 lg:px-6 text-brand-gray">17:45 ~ 18:00</td>
+              <td class="py-3 px-4 lg:px-6">등원 & 준비 (패드 확인)</td>
+            </tr>
+            <tr class="border-b border-brand-border bg-brand-bg">
+              <td class="py-3 px-4 lg:px-6 font-bold align-top">18:00 ~ 19:15</td>
+              <td class="py-3 px-4 lg:px-6">
+                <div class="font-bold">모의고사 75분</div>
+                <div class="text-xs lg:text-sm text-brand-gray mt-1 leading-relaxed">
+                  수학 8문항 · 국어 8문항 출제<br>
+                  · 자연계: 수학 8 + 국어 5 풀이 (총 13문항)<br>
+                  · 인문계: 수학 5 + 국어 8 풀이 (총 13문항)
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 lg:px-6 text-brand-gray align-top">19:20 ~ 22:00</td>
+              <td class="py-3 px-4 lg:px-6">
+                <div>수학 및 국어 해설강의</div>
+                <div class="text-xs lg:text-sm text-brand-gray mt-1">시험시간에 풀이하지 않은 문제도 모두 수강 및 학습</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 본사 vs 가맹점 역할 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">역할 분담</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">본사 vs 가맹점</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-3">본사 담당</div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 콘텐츠 제작 (문제·해설·모범답안)</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 콘텐츠 인쇄 & 배송</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 라이브 강의 진행</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 답안 채점 & 분석표 제작</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 성적표 · 출결 안내 등 학생/학부모 정기 발송</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 매일국어 1컷 자동 발송 (월~금 아침 8시)</li>
+            <li class="flex items-start gap-2"><span class="text-brand-red font-bold">·</span> 카톡 · ClassIn 질문 응대</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-gray tracking-widest mb-3">가맹점 담당</div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 학생 모집 & 마케팅</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 수업 공지 & 학부모 상담</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 수업 환경 세팅 (인터넷·강의실)</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 현장 출석 & 결석자 관리</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 답안지 스캔 & 본사 전송</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gray font-bold">·</span> 학원 자체 케어 시스템 운영</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-4 p-4 bg-brand-dark text-white rounded-xl text-center text-sm lg:text-base">
+        ⚠️ <strong>인원 유치와 마케팅은 가맹점의 책임입니다.</strong> 본사는 학사 운영에 집중합니다.
+      </div>
+    </section>
+
+    <!-- 수업 종류 3가지 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">수업 종류</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">3가지 트랙</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">메인</div>
+          <div class="font-bold text-base">정규 모의고사반</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">5월 2일 ~ 10월 31일<br>매주 토요일 18:00 ~ 22:00<br>(4시간 수업)</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-gray tracking-widest mb-2">옵션</div>
+          <div class="font-bold text-base">개념특강</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">매주 화·목요일 22:30 ~ 23:30<br>4등급 이하 대상<br>(정규반 수강생 한정)</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-gray tracking-widest mb-2">시즌</div>
+          <div class="font-bold text-base">파이널 특강</div>
+          <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">수능 다음날부터 10일간<br>매일 2회 진행<br>(라이브 + 동영상)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 스마트 케어 시스템 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">스마트 케어 시스템</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">본사 자동 운영</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8 mb-3">
+        <h3 class="font-serif-kr font-bold text-lg lg:text-xl">학원 운영은 가맹점, 학생 케어는 본사가 자동으로</h3>
+        <p class="text-sm lg:text-base text-brand-gray mt-3 leading-relaxed">
+          카카오톡 채널 한 곳에서 매일 작동하는 십일전략 시스템이 학생의 학습 행동을 실시간으로 추적하고 확인할 수 있습니다.
+        </p>
+      </div>
+
+      <!-- QR 출석 → 학습 콘텐츠 자동 오픈 스포트라이트 -->
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8 mb-3">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">QR ATTENDANCE · 출석 → 학습 자동 연결</div>
+        <h3 class="font-serif-kr font-bold text-lg lg:text-xl leading-tight">QR 출석 한 번으로,<br>학생 개인 학습 콘텐츠가 자동으로 열립니다</h3>
+        <p class="text-sm lg:text-base text-brand-gray mt-3 leading-relaxed">
+          수업이 끝나는 동시에 십일전략 자체 웹에서 학생 개인별 학습 콘텐츠가 자동으로 오픈되어,
+          <strong class="text-brand-black">시간 제약 없이 무한 반복 학습</strong>이 가능합니다.
+        </p>
+
+        <!-- 3단계 흐름 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-6">
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="text-xs text-brand-red font-bold tracking-widest mb-2">STEP 1</div>
+            <div class="font-bold text-base">QR 출석 체크</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">시험지 <strong class="text-brand-black">두 번째 페이지의 QR 코드</strong>로 출석 체크</div>
+            <div class="text-xs text-brand-gray mt-3 pt-3 border-t border-brand-border space-y-1">
+              <div>→ 학생 휴대폰으로 직접 체크</div>
+              <div>→ 또는 학원에서 수기 체크</div>
+            </div>
+          </div>
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="text-xs text-brand-red font-bold tracking-widest mb-2">STEP 2</div>
+            <div class="font-bold text-base">학습 콘텐츠 자동 오픈</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">수업 종료와 동시에 학생 개인별로 <strong class="text-brand-black">십일전략 자체 웹</strong>에서 자동 활성화</div>
+          </div>
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="text-xs text-brand-red font-bold tracking-widest mb-2">STEP 3</div>
+            <div class="font-bold text-base">무한 반복 학습</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-2 leading-relaxed">시간·횟수 제약 없이 학생이 원하는 만큼 반복 학습 가능</div>
+          </div>
+        </div>
+
+        <!-- 자동 오픈되는 콘텐츠 -->
+        <div class="mt-5 pt-5 border-t border-brand-border">
+          <div class="text-xs text-brand-red font-bold tracking-widest mb-3">자동 오픈되는 학습 콘텐츠</div>
+          <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 text-xs">
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📖 해설지</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">✏️ 모범답안</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">📑 강의노트</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center">🎬 해설영상</div>
+            <div class="bg-brand-bg rounded-lg p-3 text-center col-span-2 lg:col-span-1">💡 개념영상</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+        <!-- 카드 1: 매일국어 1컷 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">DAILY · 매일 아침 8시</div>
+          <div class="font-bold text-base lg:text-lg">월~금 매일국어 1컷</div>
+          <p class="text-sm text-brand-gray mt-2 leading-relaxed">매일 아침 8시 카카오톡으로 도착하는 9단계 카드뉴스. 15분이면 완주, 분산학습으로 장기기억 정착.</p>
+          <div class="mt-4 pt-4 border-t border-brand-border">
+            <div class="grid grid-cols-4 gap-1.5 text-xs">
+              <div class="bg-brand-bg rounded p-2 text-center"><strong>정독</strong></div>
+              <div class="bg-brand-bg rounded p-2 text-center"><strong>재이해</strong></div>
+              <div class="bg-brand-bg rounded p-2 text-center"><strong>정리</strong></div>
+              <div class="bg-brand-bg rounded p-2 text-center"><strong>적용</strong></div>
+            </div>
+            <div class="text-xs text-brand-gray mt-3 text-center">월~금 · 5~10월 = <strong class="text-brand-red">핵심 지문 130편 정복</strong></div>
+          </div>
+        </div>
+
+        <!-- 카드 2: 학습 콘텐츠 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">PLATFORM · 자체 학습웹</div>
+          <div class="font-bold text-base lg:text-lg">7가지 학습 자료</div>
+          <p class="text-sm text-brand-gray mt-2 leading-relaxed">수업 직후 7가지 학습 자료가 카톡 채널 자체 플랫폼에 자동 업로드되어 24시간 무제한 반복 학습이 가능합니다.</p>
+          <div class="mt-4 pt-4 border-t border-brand-border">
+            <ul class="text-xs space-y-1 text-brand-gray">
+              <li>· 시험지 + 해설지</li>
+              <li>· 워크북 + 워크북 해설지</li>
+              <li>· 강의노트</li>
+              <li>· 모범답안</li>
+              <li>· 해설영상 32개 (국어·수학)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 카드 3: 학원 운영 도구 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="text-xs font-bold text-brand-red tracking-widest mb-2">ACADEMY TOOL · 학원 운영 도구</div>
+          <div class="font-bold text-base lg:text-lg">학생 학습 현황 데이터</div>
+          <p class="text-sm text-brand-gray mt-2 leading-relaxed">가맹학원 전용 <strong class="text-brand-black">관리자 페이지</strong>에서 학생들의 학습 현황과 출석을 실시간으로 확인할 수 있습니다. 데이터 기반으로 학부모 상담과 학생 케어를 효과적으로 진행하세요.</p>
+
+          <!-- 관리자 페이지 강조 박스 -->
+          <div class="mt-4 p-3 bg-brand-bg rounded-lg border border-brand-red/30">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🔐</span>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-brand-red">전용 관리자 페이지 + 아이디 제공</div>
+                <div class="text-[10px] text-brand-gray mt-0.5">가맹점별 독립 계정으로 24시간 접속 가능</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-brand-border">
+            <ul class="text-xs space-y-1 text-brand-gray">
+              <li>· QR 출석 체크 기록</li>
+              <li>· 매주 모의고사 성적표</li>
+              <li>· 매일 학습 완료 / 미완료 현황</li>
+              <li>· 학습 진도 추적</li>
+              <li class="pt-1.5 mt-1.5 border-t border-brand-border"><strong class="text-brand-red">학원의 데이터 기반 학부모 케어 도구</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 p-4 bg-brand-dark text-white rounded-xl text-center text-sm lg:text-base">
+        💡 <strong>가맹점의 장점:</strong> 본사가 학생 케어/소통/관리까지 자동 처리하므로, 가맹점은 학생 모집과 현장 운영에만 집중할 수 있습니다.
+      </div>
+    </section>
+
+    <!-- 하단 여백 -->
+    <div class="pb-12"></div>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /franchise-type 가맹 형태 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-franchise-type" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">FRANCHISE TYPES</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">가맹 형태</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">지역권 4종 · 가맹비 · 보호 반경</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">지역권으로 가맹점을 보호합니다</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          가맹점의 안정적인 운영을 위해 4가지 가맹 형태를 제공합니다.
+          지역권 형태를 선택하면 해당 반경 내 타 가맹이 제한되어 학원 상권이 보호됩니다.
+          가맹비는 시기별로 차등 적용되며, 빠를수록 유리합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4가지 가맹 형태 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">4가지 가맹 형태</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">지역권 선택</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <!-- 지역권 無 -->
+        <div class="bg-white rounded-2xl border-2 border-brand-red p-5 lg:p-6">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-bold text-base">지역권 無</div>
+            <div class="text-xs bg-brand-red text-white px-2 py-1 rounded-full font-bold">가맹비 0원 · 추천</div>
+          </div>
+          <div class="text-xs text-brand-gray mb-3">소규모 시작용</div>
+          <div class="space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">보호 반경</span><span>없음</span></div>
+            <div class="flex justify-between"><span class="text-brand-gray">손익분기점</span><span>무관</span></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">가맹비</span><strong class="text-brand-red">0원</strong></div>
+          </div>
+        </div>
+
+        <!-- 지역권 1형 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-bold text-base">지역권 1형</div>
+            <div class="text-xs bg-brand-bg text-brand-gray px-2 py-1 rounded-full font-bold">1km</div>
+          </div>
+          <div class="text-xs text-brand-gray mb-3">소규모 학원용</div>
+          <div class="space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">보호 반경</span><span>1km 이내</span></div>
+            <div class="flex justify-between"><span class="text-brand-gray">손익분기점</span><span>월 5명</span></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">가맹비 (6월 이전)</span><strong class="text-brand-red">480만원</strong></div>
+          </div>
+        </div>
+
+        <!-- 지역권 2형 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-bold text-base">지역권 2형</div>
+            <div class="text-xs bg-brand-bg text-brand-gray px-2 py-1 rounded-full font-bold">4km</div>
+          </div>
+          <div class="text-xs text-brand-gray mb-3">중형 학원용</div>
+          <div class="space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">보호 반경</span><span>4km 이내</span></div>
+            <div class="flex justify-between"><span class="text-brand-gray">손익분기점</span><span>월 10명</span></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">가맹비 (6월 이전)</span><strong class="text-brand-red">960만원</strong></div>
+          </div>
+        </div>
+
+        <!-- 지역권 3형 -->
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-bold text-base">지역권 3형</div>
+            <div class="text-xs bg-brand-bg text-brand-gray px-2 py-1 rounded-full font-bold">12km</div>
+          </div>
+          <div class="text-xs text-brand-gray mb-3">대형 학원 · 지역 독점용</div>
+          <div class="space-y-1.5 text-sm">
+            <div class="flex justify-between"><span class="text-brand-gray">보호 반경</span><span>12km 이내</span></div>
+            <div class="flex justify-between"><span class="text-brand-gray">손익분기점</span><span>월 20명</span></div>
+            <div class="flex justify-between pt-2 mt-2 border-t border-brand-border"><span class="font-bold">가맹비 (6월 이전)</span><strong class="text-brand-red">1,920만원</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 가맹비 시기별 차등 (얼리버드) -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">가맹비 시기별 차등</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">빠를수록 유리</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-x-auto">
+        <table class="w-full text-xs lg:text-sm">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="py-3 px-3 lg:px-6 text-left font-bold">가맹 형태</th>
+              <th class="py-3 px-3 lg:px-6 text-right font-bold">6월 이전</th>
+              <th class="py-3 px-3 lg:px-6 text-right font-bold">7월 이전</th>
+              <th class="py-3 px-3 lg:px-6 text-right font-bold">8월 이전</th>
+              <th class="py-3 px-3 lg:px-6 text-right font-bold">8월 이후</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-3 lg:px-6 font-bold">지역권 無</td>
+              <td colspan="4" class="py-3 px-3 lg:px-6 text-center text-brand-gray">가맹비 無 (시기 무관)</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-3 lg:px-6 font-bold">지역권 1형</td>
+              <td class="py-3 px-3 lg:px-6 text-right font-bold text-brand-red">480만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">400만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">320만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">240만원</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-3 lg:px-6 font-bold">지역권 2형</td>
+              <td class="py-3 px-3 lg:px-6 text-right font-bold text-brand-red">960만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">800만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">640만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">480만원</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 lg:px-6 font-bold">지역권 3형</td>
+              <td class="py-3 px-3 lg:px-6 text-right font-bold text-brand-red">1,920만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">1,600만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">1,280만원</td>
+              <td class="py-3 px-3 lg:px-6 text-right">960만원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-brand-gray mt-3 text-center">📌 가맹비는 시기가 늦어질수록 낮아지지만, 지역권 보호 효과도 같이 줄어듭니다.</p>
+    </section>
+
+    <!-- 하단 여백 -->
+    <div class="pb-12"></div>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /process 가맹 진행 절차 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-process" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">PROCESS</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">가맹 진행 절차</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">문의부터 개점까지 7단계</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">상담부터 개점까지</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          처음 문의 후 빠르면 2~3주 안에 가맹 계약 및 수업 시작이 가능합니다.
+          본사가 사전 점검부터 환경 세팅까지 함께 진행합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7단계 프로세스 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">7단계 진행 절차</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">예상 2~3주</span>
+      </div>
+
+      <div class="space-y-3">
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">1</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">카카오톡 상담 신청</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">카카오톡 채널로 가맹 문의 및 기본 정보 전달</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">2</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">사업 설명</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">본사가 보내드리는 가맹정보 웹페이지를 참고 · 추가 문의는 본사 상담자와 온라인으로 진행</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">3</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">사전 점검</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">인터넷 환경 (300Mbps 이상) · 강의실 시설 · 수업 시뮬레이션</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">4</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">가맹 형태 선택</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">학원 위치·규모에 맞는 지역권 형태 결정 (無/1형/2형/3형)</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">5</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">계약 체결</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">정식 가맹 계약서 작성 및 가맹비 납부</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-brand-border p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">6</div>
+          <div class="flex-1">
+            <div class="font-bold text-base">수업 환경 세팅</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">ClassIn 설정 · 패드 준비 안내 · 학원 자체 시뮬레이션</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border-2 border-brand-red p-5 lg:p-6 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-red text-white font-serif-kr font-black text-lg flex items-center justify-center shrink-0">7</div>
+          <div class="flex-1">
+            <div class="font-bold text-base text-brand-red">오픈 & 운영 시작 🎉</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">학생 모집 → 수업 시작 → 가맹학원 직접 정기적 마케팅 활성화</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 사전 점검 항목 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <h3 class="font-bold text-base lg:text-lg">사전 점검 항목 (3단계)</h3>
+        <div class="mt-4 space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="text-brand-red font-bold shrink-0">✓</span>
+            <div>
+              <div class="font-bold text-sm">인터넷 속도</div>
+              <div class="text-xs text-brand-gray mt-0.5">300 Mbps 이상 (와이파이 시 학생 수에 따른 용량 점검 필수)</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-brand-red font-bold shrink-0">✓</span>
+            <div>
+              <div class="font-bold text-sm">수업 시뮬레이션</div>
+              <div class="text-xs text-brand-gray mt-0.5">실제 수업 환경에서 라이브 송출/필기 동기화 안정성 검증</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-brand-red font-bold shrink-0">✓</span>
+            <div>
+              <div class="font-bold text-sm">강의실 환경</div>
+              <div class="text-xs text-brand-gray mt-0.5">학생당 충분한 공간 · 패드 거치 가능 환경 · 시험 분위기 조성 가능</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 여백 -->
+    <div class="pb-12"></div>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- /contract 계약 조건 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div id="page-contract" class="page">
+  <header class="py-6 md:py-10">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5">
+      <a href="#" onclick="showPage('home'); return false;" class="text-sm text-brand-gray hover:text-brand-black inline-block mb-3">← 홈</a>
+      <div class="text-center">
+        <div class="text-xs font-bold text-brand-red tracking-widest mb-2">CONTRACT</div>
+        <h1 class="font-serif-kr font-black text-2xl md:text-3xl lg:text-4xl">계약 조건</h1>
+        <p class="text-sm md:text-base text-brand-gray mt-2">계약 기간 · 환불 규정 · 위약 조항</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 인트로 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pb-6">
+      <div class="bg-white rounded-2xl border-t-4 border-brand-red shadow-sm p-6 lg:p-8">
+        <h2 class="font-serif-kr font-bold text-lg lg:text-2xl">투명한 계약, 명확한 권리/의무</h2>
+        <p class="text-sm lg:text-base leading-relaxed mt-3">
+          모든 계약 조건은 사전에 공개됩니다. 가맹점이 안심하고 사업을 시작할 수 있도록
+          계약 기간, 환불 규정, 위약 조항을 명확히 정리했습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 계약 기간 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-6">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">계약 기간</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">제8조</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <div class="lg:flex lg:items-center lg:gap-6">
+          <div class="text-center lg:text-left">
+            <div class="text-xs text-brand-gray mb-1">계약 유효기간</div>
+            <div class="font-serif-kr font-black text-2xl lg:text-3xl">계약 체결일 ~ 당해년도 12월 31일</div>
+          </div>
+        </div>
+        <div class="mt-4 p-3 bg-brand-bg rounded-lg text-xs lg:text-sm leading-relaxed">
+          📌 계약 만료 1개월 전 (11월 30일까지) 양 당사자 간 합의가 없는 경우 계약은 자동 종료됩니다.
+          이후 재계약 여부는 상호 협의합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 환불 규정 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">환불 규정</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">제6조</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="py-3 px-4 lg:px-6 text-left font-bold">해지 시점</th>
+              <th class="py-3 px-4 lg:px-6 text-right font-bold">환불율</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-4 lg:px-6">가맹 개시일 ~ 2개월 이내</td>
+              <td class="py-3 px-4 lg:px-6 text-right font-bold text-brand-red">잔여 금액 50% 환불</td>
+            </tr>
+            <tr class="border-b border-brand-border">
+              <td class="py-3 px-4 lg:px-6">2 ~ 4개월 이내</td>
+              <td class="py-3 px-4 lg:px-6 text-right font-bold">잔여 금액 25% 환불</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 lg:px-6">4개월 경과 후</td>
+              <td class="py-3 px-4 lg:px-6 text-right text-brand-gray">환불 불가</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-brand-gray mt-3">환불 요청은 서면 제출 후 본사 검토를 거쳐 14일 이내 처리됩니다.</p>
+    </section>
+
+    <!-- 위약 조항 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">위약 조항</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">제7조 · 브랜드 보호</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <p class="text-xs lg:text-sm text-brand-gray leading-relaxed mb-4">
+          ⚠️ 모든 가맹점의 브랜드 가치를 보호하기 위해 다음과 같은 위약 조항이 있습니다.
+          이는 콘텐츠 무단 유출/공유를 방지하여 가맹점 자산을 지키기 위함입니다.
+        </p>
+        <div class="space-y-3">
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-red font-bold text-lg shrink-0">!</span>
+              <div class="flex-1">
+                <div class="font-bold text-sm">교재 무단 복제</div>
+                <div class="text-xs text-brand-gray mt-1">건당 <strong class="text-brand-red">1,000,000원</strong> 위약금 (자료 1부 기준)</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-red font-bold text-lg shrink-0">!</span>
+              <div class="flex-1">
+                <div class="font-bold text-sm">콘텐츠 공유 · 재판매</div>
+                <div class="text-xs text-brand-gray mt-1">자료 1건당 <strong class="text-brand-red">10,000,000원</strong> 위약금 + 법적 조치</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-brand-bg rounded-xl p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-red font-bold text-lg shrink-0">!</span>
+              <div class="flex-1">
+                <div class="font-bold text-sm">타 브랜드 유사 콘텐츠 사용</div>
+                <div class="text-xs text-brand-gray mt-1">본사 사전 협의 후 사용 가능 · 협의 없이 운영 시 <strong class="text-brand-red">즉시 해지 + 5,000,000원</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 가맹점 의무 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">가맹점 주요 의무</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">제10조</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>수강생 유치 마케팅 활동의 성실 수행</li>
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>안정적인 인터넷 환경 사전 구축 및 유지</li>
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>본사 교재·콘텐츠를 승인된 목적 외 사용 금지</li>
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>본사 운영 정책, 수업 커리큘럼, 평가 방식 성실 준수</li>
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>본사·수강생 간 소통 창구 (카톡·ClassIn) 적극 활용</li>
+          <li class="flex items-start gap-3"><span class="text-brand-red font-bold shrink-0">·</span>관계 법령 준수 및 학생/학부모 개인정보 보호</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DB 관리 -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10">
+      <div class="bg-white rounded-2xl border border-brand-border p-6 lg:p-8">
+        <h3 class="font-bold text-base lg:text-lg">DB(데이터) 관리 정책 <span class="text-xs text-brand-gray font-normal ml-1">제9조</span></h3>
+        <ul class="space-y-2 text-sm mt-4">
+          <li class="flex items-start gap-2"><span class="text-brand-gray font-bold shrink-0">·</span>학생 개인정보는 본사와 공유 (수업 시스템 운영 목적)</li>
+          <li class="flex items-start gap-2"><span class="text-brand-gray font-bold shrink-0">·</span><strong>합격자 명단은 다음해 가맹 연장 시 가맹점에 제공</strong> (계약 기간 내 마케팅 사용 가능)</li>
+          <li class="flex items-start gap-2"><span class="text-brand-gray font-bold shrink-0">·</span><strong>가맹 해지 시에는 본인 가맹점 합격생 외 합격자 명단을 사용할 수 없습니다</strong></li>
+          <li class="flex items-start gap-2"><span class="text-brand-gray font-bold shrink-0">·</span>제3자 제공·외부 유출·복제·재판매 금지</li>
+          <li class="flex items-start gap-2"><span class="text-brand-gray font-bold shrink-0">·</span>계약 종료 시 본사 제공 DB 지체 없이 파기/반환</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 계약서 전문 (토글) -->
+    <section class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 pt-10 pb-12">
+      <div class="flex items-center mb-4">
+        <div class="w-1 h-5 bg-brand-red rounded mr-3"></div>
+        <h2 class="font-bold text-base md:text-lg">계약서 전문 보기</h2>
+        <div class="flex-1 mx-3 border-t border-brand-border"></div>
+        <span class="text-xs md:text-sm text-brand-gray">클릭하여 펼치기</span>
+      </div>
+
+      <details class="bg-white rounded-2xl border border-brand-border overflow-hidden group">
+        <summary class="cursor-pointer p-5 lg:p-6 flex items-center justify-between list-none hover:bg-brand-bg transition">
+          <div>
+            <div class="font-bold text-base lg:text-lg">『(주)십일전략 온라인 강의 & GR831 약술형 논술 콘텐츠 가맹 계약서』</div>
+            <div class="text-xs lg:text-sm text-brand-gray mt-1">전문 11개 조항 · 부칙 포함</div>
+          </div>
+          <span class="text-brand-gray group-open:rotate-180 transition-transform text-xl">▼</span>
+        </summary>
+        <div class="p-5 lg:p-8 border-t border-brand-border text-sm lg:text-base leading-relaxed space-y-5 max-h-[600px] overflow-y-auto">
+
+          <p class="text-xs lg:text-sm text-brand-gray">
+            본 계약은 (주)십일전략(이하 "본사")과 가맹사업자(이하 "가맹점") 간의 가맹 협약을 목적으로 체결되며,
+            "십일전략 온라인 강의 및 GR831 약술형 논술 콘텐츠" 사용과 관련된 권리 및 의무를 명확히 하기 위해 다음과 같이 정합니다.
+          </p>
+
+          <div>
+            <div class="font-bold text-brand-red">제1조 (계약 목적)</div>
+            <p class="mt-2">본 계약은 본사의 온라인 강의 시스템 및 논술 콘텐츠를 활용한 교육 프로그램 운영을 통해 가맹점이 독립적 사업을 운영할 수 있도록 하며, 가맹 권한 및 서비스 범위, 운영 조건 등을 규정함을 목적으로 한다.</p>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제2조 (가맹 형태 및 지역권)</div>
+            <p class="mt-2">가맹점은 다음 중 하나의 형태로 가맹하며, 가맹 후에는 해당 반경 내 타 가맹이 제한된다.</p>
+            <ul class="mt-2 ml-4 space-y-1 text-sm">
+              <li>0. 지역권 無 : 반경 0km 이내 타 학원 가맹 금지</li>
+              <li>1. 지역권 가맹 1형 : 사업장 기준 반경 1km 이내 타 학원 가맹 금지</li>
+              <li>2. 지역권 가맹 2형 : 사업장 기준 반경 4km 이내 타 학원 가맹 금지</li>
+              <li>3. 지역권 가맹 3형 : 사업장 기준 반경 12km 이내 타 학원 가맹 금지</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제3조 (제공 서비스)</div>
+            <p class="mt-2">본사가 가맹점에 제공하는 서비스는 아래와 같다.</p>
+            <ol class="mt-2 ml-4 space-y-1 text-sm list-decimal">
+              <li>온라인 정규 강의 제공</li>
+              <li>수강생 작성 답안에 대한 정기적 채점 및 분석표 제공</li>
+              <li>질의응답 관리: ClassIn을 통한 소통, 자체 질답 페이지 운영</li>
+              <li>공동 마케팅: 홈페이지 가맹학원 명단 공개, 당해년도 입결 결과 공유 (중간 해지 시 제공되지 않음)</li>
+            </ol>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제4조 (온라인 설명회 진행)</div>
+            <p class="mt-2">본사 온라인 설명회 진행 시 가맹 학원에서도 홍보하여 학원생들이 참여할 수 있다. 모든 가맹 형태에서 온라인 설명회 참여 가능. 이외 설명회는 학원과 협의에 따라 일정 조율 가능하다.</p>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제5조 (가맹비 및 수업료 정산 기준)</div>
+            <ol class="mt-2 ml-4 space-y-2 text-sm list-decimal">
+              <li>
+                <strong>온라인 수업 정산</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· <strong>모의고사 정규반</strong>: 수강생 1인 기준 회당 4만원, 월 4회 기준 월 총 16만원 (교재비 별도)</li>
+                  <li>· <strong>개념특강</strong>: 화요일·목요일 수업이 1회로 묶여 진행됨. 수강생 1인 기준 1회당 2만원, 월 4회 기준 월 총 8만원 (교재비 없음)</li>
+                  <li>· <strong>파이널 특강</strong>: 수강생 1인 기준 20회 묶음 총 50만원 (교재비 별도)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>교재비</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· 모의고사 정규반 1회당 1.4만원, 월 4회 기준 월 5.6만원</li>
+                  <li>· 개념특강 교재비 無</li>
+                  <li>· 파이널 특강 20회 총 20만원</li>
+                </ul>
+              </li>
+              <li>
+                <strong>손익분기점</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· 지역권 無 : 명수 무관</li>
+                  <li>· 지역권 1형 : 월 5명</li>
+                  <li>· 지역권 2형 : 월 10명</li>
+                  <li>· 지역권 3형 : 월 20명</li>
+                </ul>
+              </li>
+            </ol>
+
+            <div class="mt-3 overflow-x-auto">
+              <table class="w-full text-xs lg:text-sm border border-brand-border">
+                <thead>
+                  <tr class="bg-brand-bg">
+                    <th class="py-2 px-2 lg:px-3 text-left">가맹 형태</th>
+                    <th class="py-2 px-2 lg:px-3 text-right">6월 이전</th>
+                    <th class="py-2 px-2 lg:px-3 text-right">7월 이전</th>
+                    <th class="py-2 px-2 lg:px-3 text-right">8월 이전</th>
+                    <th class="py-2 px-2 lg:px-3 text-right">8월 이후</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="py-2 px-2 lg:px-3 font-bold">지역권 無</td><td colspan="4" class="text-center text-brand-gray">가맹비 無</td></tr>
+                  <tr class="border-t border-brand-border"><td class="py-2 px-2 lg:px-3 font-bold">지역권 1형</td><td class="py-2 px-2 lg:px-3 text-right">480만원</td><td class="py-2 px-2 lg:px-3 text-right">400만원</td><td class="py-2 px-2 lg:px-3 text-right">320만원</td><td class="py-2 px-2 lg:px-3 text-right">240만원</td></tr>
+                  <tr class="border-t border-brand-border"><td class="py-2 px-2 lg:px-3 font-bold">지역권 2형</td><td class="py-2 px-2 lg:px-3 text-right">960만원</td><td class="py-2 px-2 lg:px-3 text-right">800만원</td><td class="py-2 px-2 lg:px-3 text-right">640만원</td><td class="py-2 px-2 lg:px-3 text-right">480만원</td></tr>
+                  <tr class="border-t border-brand-border"><td class="py-2 px-2 lg:px-3 font-bold">지역권 3형</td><td class="py-2 px-2 lg:px-3 text-right">1,920만원</td><td class="py-2 px-2 lg:px-3 text-right">1,600만원</td><td class="py-2 px-2 lg:px-3 text-right">1,280만원</td><td class="py-2 px-2 lg:px-3 text-right">960만원</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제6조 (환불 및 계약 해지 규정)</div>
+            <p class="mt-2">가맹 개시일로부터:</p>
+            <ol class="mt-2 ml-4 space-y-1 text-sm list-decimal">
+              <li>2개월 이내 해지 시 : 가맹비에 잔여 금액의 50% 환불</li>
+              <li>4개월 이내 해지 시 : 가맹비에 잔여 금액의 25% 환불</li>
+              <li>4개월 경과 후 : 환불 불가</li>
+            </ol>
+            <p class="mt-2 text-sm">환불 요청은 서면으로 제출해야 하며, 본사의 검토 후 14일 이내 회신 및 처리.</p>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제7조 (위약금 및 위약벌 조항)</div>
+            <p class="mt-2">가맹점이 아래 사항을 위반할 경우 본사는 계약 해지 및 다음과 같은 위약벌을 부과할 수 있다.</p>
+            <ol class="mt-2 ml-4 space-y-2 text-sm list-decimal">
+              <li>
+                <strong>교재 무단 복제 또는 유출 확인 시:</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· 무단 복제 건당 1,000,000원(백만원)의 위약금 즉시 부과</li>
+                  <li>· "건당"이란 시험지, 해설지 등 본사에서 제공하는 자료 1부 기준. 자료 일부 복제도 "건당"에 포함</li>
+                  <li>· 민형사상 책임 추궁 및 손해배상 청구 가능</li>
+                </ul>
+              </li>
+              <li>
+                <strong>타인에게 콘텐츠 공유·재판매 시:</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· 콘텐츠 공유·재판매 자료 1개(자료 1회분) 건당 10,000,000원</li>
+                  <li>· 판매·공유한 자료가 복제 배포되었을 경우 7조 1항의 복제 위약벌도 함께 청구</li>
+                  <li>· 2회 이상 발생 시 계약 즉시 해지 및 법적 조치</li>
+                </ul>
+              </li>
+              <li>
+                <strong>타 브랜드 유사 콘텐츠 사용 시:</strong>
+                <ul class="ml-4 mt-1 space-y-0.5">
+                  <li>· 본사와 사전 협의 후 사용 가능</li>
+                  <li>· 본사 협의 없이 운영 시 계약 즉시 해지</li>
+                  <li>· 계약 즉시 해지 시 가맹비 반환 불가</li>
+                  <li>· 위약금 5,000,000원(오백만원) 부과</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제8조 (계약 기간)</div>
+            <p class="mt-2">본 계약의 유효기간은 계약 체결일로부터 당해년도 12월 31일까지 유효하다. 계약 만료일 1개월 전(11월 30일까지) 양 당사자 간 합의가 없는 경우 계약은 자동 "종료"되며, 이후 재계약 여부는 상호 협의한다.</p>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제9조 (DB 관련)</div>
+            <ol class="mt-2 ml-4 space-y-1 text-sm list-decimal">
+              <li>DB(데이터베이스)란 본사 수업 시스템을 통해 수집된 학생 개인정보(성명, 연락처, 학교, 학년, 주소 등) 및 합격자 명단을 의미한다. 수강 확정 여부와 관계없이 수집된 모든 학생(상담 후 미등록 인원 포함) 정보를 포함한다.</li>
+              <li>가맹점은 수집된 개인정보를 본 계약상 서비스 운영 및 학습 관리 목적 외 사용하지 않는다. 개인정보 수집 시 제3자(십일전략) 제공 동의를 시행하며, 미비로 발생하는 문제는 가맹점이 책임진다.</li>
+              <li>본사는 입시 결과 발표 후 당해년도 합격자 명단을 <strong>다음해 가맹 연장 시</strong>에 가맹점에 제공하며, 가맹점은 이를 계약 기간 내 홍보 및 마케팅 자료로만 사용할 수 있다.</li>
+              <li><strong>가맹 해지 시에는 본인 가맹점에서 직접 합격시킨 합격생 외에는 합격자 명단을 사용할 수 없다.</strong> 본사 제공 합격자 DB는 가맹 종료와 동시에 사용 권한이 소멸된다.</li>
+              <li>가맹점은 본사 제공 합격자 DB를 제3자에게 제공·외부 유출·복제·재판매할 수 없으며, 위반 시 제7조 위약벌 조항이 적용된다.</li>
+              <li>학업 성과·입시 결과 등은 실명 기반 내부 마케팅 자료로만 활용 가능하며, 외부 공개 시 본사의 사전 서면 승인을 받아야 한다.</li>
+              <li>계약 해지·종료 시, 가맹점은 본사 제공 DB(합격자 명단, 분석자료 등)를 지체 없이 파기 또는 본사에 반환해야 하며, 위반 시 민형사상 책임을 질 수 있다.</li>
+            </ol>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제10조 (가맹점의 의무)</div>
+            <ol class="mt-2 ml-4 space-y-1 text-sm list-decimal">
+              <li>수강생 유치를 위한 온·오프라인 홍보, 상담, 마케팅 활동의 성실한 수행 및 본사 요청 공동 마케팅 협조</li>
+              <li>온라인 수업이 원활히 운영될 수 있는 안정적 인터넷 환경 사전 구축·유지 (문제 발생 시 가맹점 책임)</li>
+              <li>본사 시스템·교재·콘텐츠 등 교육 자료를 승인된 목적 외 사용·타 브랜드 병행 사용 금지</li>
+              <li>본사 운영 정책·수업 커리큘럼·평가 방식 성실 준수, 요청 시 운영 보고서·수강생 현황·마케팅 실적 등 성실 제출</li>
+              <li>본사 및 수강생 간 소통 창구(카카오톡 채널, ClassIn 등) 적극 활용한 질의응답·학습 상담 충실 수행</li>
+              <li>관계 법령 준수 및 학생/학부모 개인정보 보호 의무 다함</li>
+            </ol>
+          </div>
+
+          <div>
+            <div class="font-bold text-brand-red">제11조 (기타 조항)</div>
+            <ol class="mt-2 ml-4 space-y-1 text-sm list-decimal">
+              <li>가맹점은 계약 체결 전 온라인 수업에 필수적인 사용 환경(속도, 안정성, 장비 등) 사전 점검을 시행해야 하며, 점검이 시행되지 않거나 본사 기준에 부합하지 않을 경우 가맹 승인·운영 개시를 보류·재검토할 수 있다.
+                <ul class="ml-4 mt-1 space-y-0.5 text-xs">
+                  <li>* 사전 점검 항목: 인터넷 속도 300 Mbps 이상, 수업 시뮬레이션 시 진행 안정성</li>
+                </ul>
+              </li>
+              <li>본 계약에 명시되지 않은 사항은 관련 법령 및 상호 협의에 따라 결정하며, 협의 불가 시 관습 및 신의성실 원칙에 따라 처리한다.</li>
+              <li>계약 이행 중 발생하는 분쟁은 가급적 협의로 해결하되, 불가능할 경우 본사의 본점 소재지를 관할하는 법원을 제1심 전속 관할 법원으로 한다.</li>
+              <li>본 계약은 당사자 간 서명·날인을 통해 효력을 가지며, 서면 합의 없이 일방적 변경·해석은 인정되지 않는다.</li>
+              <li>일부 조항이 무효가 되더라도 그 외의 조항은 계속 유효하며, 무효 조항은 관계 법령 및 계약 목적에 부합하도록 합리적으로 수정·보완하여 적용한다.</li>
+            </ol>
+          </div>
+
+          <div class="pt-3 mt-3 border-t border-brand-border">
+            <div class="font-bold">부칙</div>
+            <p class="mt-2 text-sm">계약 체결일: 2025년 ○월 ○일</p>
+            <p class="mt-2 text-sm">본 계약은 계약 당사자 간 신의성실 원칙에 따라 체결되며, 서명과 날인을 통해 법적 효력을 가진다.</p>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 bg-brand-bg rounded-lg">
+                <div class="text-xs text-brand-gray">(주)십일전략 대표</div>
+                <div class="mt-1">이름: __________ (서명 또는 인)</div>
+              </div>
+              <div class="p-3 bg-brand-bg rounded-lg">
+                <div class="text-xs text-brand-gray">가맹점 대표</div>
+                <div class="mt-1">이름: __________ (서명 또는 인)</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-brand-gray border-t border-brand-border pt-3 mt-3">
+            ※ 본 계약서는 표준 양식이며, 실제 계약 시 일부 조항이 변경될 수 있습니다. 정식 계약서는 가맹 진행 시 별도 제공됩니다.
+          </p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="py-8 border-t border-brand-border">
+    <div class="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-5 text-center text-xs text-brand-gray">
+      © 2026 (주)십일전략 / GR831약술형논술연구소. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<!-- 플로팅 CTA -->
+<a href="http://pf.kakao.com/_kpsxfn" target="_blank" rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 lg:w-16 lg:h-16 bg-brand-red text-white rounded-full shadow-lg flex items-center justify-center text-2xl hover:scale-110 transition"
+   title="카카오톡 상담">
+  💬
+</a>
+
+<!-- 페이지 전환 스크립트 -->
+<script>
+function showPage(pageName) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + pageName);
+  if (target) target.classList.add('active');
+
+  // Update nav buttons
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    if (btn.dataset.page === pageName) {
+      btn.classList.remove('bg-gray-700', 'text-gray-300');
+      btn.classList.add('bg-brand-red', 'text-white');
+    } else {
+      btn.classList.remove('bg-brand-red', 'text-white');
+      btn.classList.add('bg-gray-700', 'text-gray-300');
+    }
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
